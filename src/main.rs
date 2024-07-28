@@ -1,11 +1,9 @@
 use filter::filter;
-use itertools::Combinations;
 use itertools::Itertools;
 use std::collections::HashMap;
-use std::slice::Iter;
 mod filter;
 mod stringify;
-
+// create graph struct and whack everything in an impl to just call graph.find_min or summmin.
 fn main() {
     // Create a graph here
 
@@ -46,7 +44,8 @@ fn get_spanning_graph(nums: &Vec<i32>, stringified_graph: &HashMap<i32, String>)
             }
         }
     }
-    return vec![0, 0, 0, 0, 0, 0, 0];
+    return vec![0, 0, 0, 0, 0, 0, 0]; // add maybe monad to handle case where something goes
+                                      // wrong.(only fails when function args are incorrect)
 }
 
 fn generate_combos(nums: &Vec<i32>, k: &usize) -> Vec<Vec<i32>> {
