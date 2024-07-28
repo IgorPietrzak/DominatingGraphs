@@ -5,13 +5,20 @@ mod filter;
 mod stringify;
 
 fn main() {
+    // Create a graph here
+
     let mut graph: HashMap<i32, Vec<i32>> = HashMap::new();
     graph.insert(0, vec![0, 1]);
     graph.insert(1, vec![0, 1]);
     graph.insert(2, vec![3, 2]);
     graph.insert(3, vec![3, 2]);
 
+    // get string representation of neighbourhoods, see stringify.rs
+
     let stringified_graph = stringify::get_string_reps(&mut graph);
+
+    // filter out redundant vertices, see filter.rs
+
     let filtered_graph = filter(stringified_graph);
     println!("{:?}", filtered_graph);
 }
