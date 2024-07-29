@@ -1,9 +1,11 @@
 use std::collections::HashMap;
 use std::io;
 
-pub fn program_loop() {
+use crate::graph::Graph;
+
+pub fn program_loop() -> Graph {
     let mut number_of_vertices = String::new();
-    println!("Tell me how many vertices is your graph made up of: \n ");
+    println!("Tell me how many vertices your graph is made up of: \n ");
     io::stdin()
         .read_line(&mut number_of_vertices)
         .expect("Failed to read line");
@@ -12,12 +14,12 @@ pub fn program_loop() {
         Ok(number) => builder_loop(number),
         Err(_) => {
             println!("\n I'm afraid that's not a number! Try again. \n ");
-            program_loop();
+            program_loop()
         }
     }
 }
 
-fn builder_loop(no_of_vertices: i32) {
+fn builder_loop(no_of_vertices: i32) -> Graph {
     let mut graph_hash_map: HashMap<i32, String> = HashMap::new();
     for vertex in 0..no_of_vertices {
         let mut input = String::new();
@@ -35,5 +37,8 @@ fn builder_loop(no_of_vertices: i32) {
         }
     }
 
-    println!("graph: {:?}", graph_hash_map);
+    Graph {
+        vertices: (0..no_of_vertices).collect(),
+        hash_map_rep: graph_hash_map,
+    }
 }
