@@ -1,13 +1,10 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 
-fn is_subset(vec_one: &String, vec_two: &String) -> bool {
-    if vec_one.starts_with(vec_two) {
-        return true;
-    } else {
-        return false;
-    }
+fn is_subset(vec_one: &str, vec_two: &str) -> bool {
+    let set_two: HashSet<_> = vec_two.chars().collect();
+
+    vec_one.chars().all(|c| set_two.contains(&c))
 }
-
 pub fn filter(mut graph: HashMap<i32, String>) -> HashMap<i32, String> {
     let mut keys_to_remove = Vec::new();
     for (&key1, value1) in &graph {
