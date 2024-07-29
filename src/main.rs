@@ -1,9 +1,9 @@
-use graph::Graph;
 use std::collections::HashMap;
 
 mod filter;
 mod graph;
-mod stringify;
+mod graph_builder_cli;
+
 fn main() {
     let mut graph_hash_map: HashMap<i32, Vec<i32>> = HashMap::new();
     graph_hash_map.insert(0, vec![0, 1, 4]);
@@ -16,8 +16,13 @@ fn main() {
     graph_hash_map.insert(7, vec![7, 6, 8]);
     graph_hash_map.insert(8, vec![6, 8]);
 
-    let graph = Graph::new(graph_hash_map);
-    //let filtered = filter::filter(graph.hash_map_rep);
+    // build a graph given user inputs
+    let graph = graph_builder_cli::program_loop();
     let min_vertex_set = graph.get_dominating_vertex_set().unwrap();
-    println!("{:?}", min_vertex_set);
+    println!("\n ------------------------------------------------------------------------------");
+    println!("Your graph is: {:?}", graph);
+    println!(" ------------------------------------------------------------------------------");
+    println!("\n ------------------------------------------------------------------------------");
+    println!("A minimal dominating vertex set is: {:?}", min_vertex_set);
+    println!(" ------------------------------------------------------------------------------ \n");
 }
