@@ -11,15 +11,17 @@ impl Graph {
     pub fn get_dominating_vertex_set(&self) -> Option<Vec<i32>> {
         let filtered_graph = filter(self.hash_map_rep.clone());
         let filtered_vertices: Vec<i32> = filtered_graph.keys().copied().collect();
-        for k in 0..filtered_vertices.len() {
-            let length = &k + 1;
-            let combos_of_length_k = generate_combos(&filtered_vertices, &length);
+        if filtered_vertices.len() == 1 {
+            return Some(filtered_vertices);
+        }
+        for k in 1..filtered_vertices.len() {
+            let combos_of_length_k = generate_combos(&filtered_vertices, &k);
             for combo in combos_of_length_k {
                 let mut current_union_nhood: String = String::new();
                 for vertex in &combo {
                     current_union_nhood =
                         current_union_nhood + &filtered_graph.get(&vertex).unwrap();
-                    if is_spanning(&current_union_nhood, &filtered_graph) {
+                    if is_spanning(&current_union_nhood, &self.hash_map_rep) {
                         return Some(combo);
                     }
                 }

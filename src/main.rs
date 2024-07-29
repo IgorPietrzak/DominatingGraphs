@@ -23,6 +23,6 @@ fn main() {
     println!("Your graph is: {:?}", graph);
     println!(" ------------------------------------------------------------------------------");
     println!("\n ------------------------------------------------------------------------------");
-    println!("The minimal dominating vertex set is: {:?}", min_vertex_set);
+    println!("A minimal dominating vertex set is: {:?}", min_vertex_set);
     println!(" ------------------------------------------------------------------------------ \n");
 }
