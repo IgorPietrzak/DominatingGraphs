@@ -37,8 +37,18 @@ git clone https://github.com/IgorPietrzak/DominatingGraphs.git
 cd DominatingGraphs
 ```
 
+3.) Make the main.rs file
 
-3.) Run the program
+
+```bash
+touch main.rs
+
+```
+
+Write code using the library crate, see [Usage](#usage).
+
+
+4.) Run the program
 
 ```bash
 cargo run
