@@ -24,6 +24,11 @@ https://www.rust-lang.org/tools/install
 
 Once Rust is installed, do the following:
 
+
+[Note: These are unix commands you need to find the analogs for windows]
+
+
+
 1.) Clone the repository
 
 ```bash
