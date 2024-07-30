@@ -50,6 +50,8 @@ cargo run
 Use of the library shown in demo
 
 ```rust
+// main.rs
+
 extern crate dominating_graphs;
 use dominating_graphs::graph_builder_cli;
 
