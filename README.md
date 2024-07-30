@@ -4,6 +4,7 @@
 - [Introduction](#introduction)
 - [Demo](#demo)
 - [Installation](#installation)
+- [Usage](#usage)
 
 
 ## Introduction
@@ -41,4 +42,34 @@ cd DominatingGraphs
 
 ```bash
 cargo run
+```
+
+## Usage
+
+
+Use of the library shown in demo
+
+```rust
+extern crate dominating_graphs;
+use dominating_graphs::graph_builder_cli;
+
+fn main() {
+    let graph = graph_builder_cli::program_loop();
+    let min_vertex_set = graph.get_dominating_vertex_set().unwrap();
+    println!("\n ------------------------------------------------------------------------------");
+    println!("Your graph is: {:?}", graph);
+    println!(" ------------------------------------------------------------------------------");
+    println!("\n ------------------------------------------------------------------------------");
+    println!("A minimal dominating vertex set is: {:?}", min_vertex_set);
+    println!(" ------------------------------------------------------------------------------ \n");
+}
+```
+
+
+
+
+
+
+
+
 ```

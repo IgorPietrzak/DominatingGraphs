@@ -3,7 +3,7 @@
 version = 3
 
 [[package]]
-name = "domination_matrix"
+name = "dominating_graphs"
 version = "0.1.0"
 dependencies = [
  "itertools",
